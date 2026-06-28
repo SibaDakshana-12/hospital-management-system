@@ -4,6 +4,8 @@ from google_auth_oauthlib.flow import Flow
 from googleapiclient.discovery import build
 from django.conf import settings as django_settings
 from .models import GoogleCredential
+from django.utils import timezone
+from datetime import datetime
 
 SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
 REDIRECT_URI = "http://127.0.0.1:8080/calendar/oauth/callback/"
@@ -62,6 +64,8 @@ class GoogleCalendarService:
             "start": {"dateTime": start_datetime.isoformat(), "timeZone": "Asia/Kolkata"},
             "end": {"dateTime": end_datetime.isoformat(), "timeZone": "Asia/Kolkata"},
         }
+        print(start_datetime)
+        print(start_datetime.isoformat())
         return service.events().insert(calendarId="primary", body=event).execute()
 
     @staticmethod
@@ -71,8 +75,15 @@ class GoogleCalendarService:
         doctor = slot.doctor
         patient = booking.patient
 
-        start_dt = datetime.combine(slot.date, slot.start_time)
-        end_dt = datetime.combine(slot.date, slot.end_time)
+        start_dt = timezone.make_aware(
+            datetime.combine(slot.date, slot.start_time),
+            timezone.get_current_timezone(),
+        )
+
+        end_dt = timezone.make_aware(
+            datetime.combine(slot.date, slot.end_time),
+            timezone.get_current_timezone(),
+        )
 
         GoogleCalendarService.create_event(
             user=patient,
