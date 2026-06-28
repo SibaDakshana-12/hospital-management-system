@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+    <h1>Hospital Management System</h1>
+    <p>Sign in or create an account to get started</p>
+</div>
+
+<div class="row justify-content-center g-4">
+    <div class="col-md-4">
+        <div class="role-card text-center">
+            <div class="emoji">🩺</div>
+            <h3>Doctor</h3>
+            <p>Manage your availability and appointments</p>
+            <a href="{% url 'accounts:signup' %}" class="btn btn-doctor w-100">Doctor Sign Up</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="role-card text-center">
+            <div class="emoji">🧑‍🦰</div>
+            <h3>Patient</h3>
+            <p>Book appointments with doctors</p>
+            <a href="{% url 'accounts:signup' %}" class="btn btn-patient w-100">Patient Sign Up</a>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <p>Already have an account?</p>
+    <a href="{% url 'accounts:login' %}" class="btn btn-outline-secondary px-4">Login</a>
+</div>
+{% endblock %}

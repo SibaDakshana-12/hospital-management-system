@@ -1,0 +1,170 @@
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --success: #059669;
+    --success-dark: #047857;
+    --bg-light: #f8fafc;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+    color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar-hms {
+    background: linear-gradient(90deg, #0f172a, #1e293b);
+    padding: 14px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar-hms .brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.navbar-hms .user-pill {
+    background: rgba(255,255,255,0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+}
+
+/* Landing hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+/* Role cards */
+.role-card {
+    background: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 36px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.role-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.role-card .emoji {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.role-card h3 {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.role-card p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.btn-doctor {
+    background: var(--primary);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+}
+.btn-doctor:hover { background: var(--primary-dark); color: #fff; }
+
+.btn-doctor-outline {
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+    background: transparent;
+}
+.btn-doctor-outline:hover { background: var(--primary); color: #fff; }
+
+.btn-patient {
+    background: var(--success);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+}
+.btn-patient:hover { background: var(--success-dark); color: #fff; }
+
+.btn-patient-outline {
+    border: 1.5px solid var(--success);
+    color: var(--success);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px;
+    background: transparent;
+}
+.btn-patient-outline:hover { background: var(--success); color: #fff; }
+
+/* Generic cards/tables used in dashboards */
+.hms-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    margin-bottom: 28px;
+}
+
+.hms-card h4 {
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.table-hms thead {
+    background: #f1f5f9;
+}
+
+.table-hms th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-available {
+    background: #dcfce7;
+    color: #166534;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-booked {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}

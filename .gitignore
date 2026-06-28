@@ -1,0 +1,52 @@
+# Environment variables (both root and email-service)
+.env
+**/.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+venv/
+env/
+ENV/
+.venv/
+
+# Django
+*.sqlite3
+db.sqlite3
+staticfiles/
+media/
+
+# Google OAuth credentials — NEVER commit these
+credentials.json
+token.json
+*.pickle
+
+# Node / Serverless
+node_modules/
+**/node_modules/
+.serverless/
+npm-debug.log*
+package-lock.json
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Pytest / coverage (if you add tests later)
+.pytest_cache/
+htmlcov/
+.coverage

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Welcome, {{ request.user.username }} 👋</h2>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<div class="hms-card">
+    <h4>Available Slots</h4>
+    <table class="table table-hms">
+        <thead>
+            <tr><th>Doctor</th><th>Date</th><th>Start</th><th>End</th><th></th></tr>
+        </thead>
+        <tbody>
+            {% for slot in slots %}
+            <tr>
+                <td>Dr. {{ slot.doctor.username }}</td>
+                <td>{{ slot.date }}</td>
+                <td>{{ slot.start_time }}</td>
+                <td>{{ slot.end_time }}</td>
+                <td>
+                    <form method="post" action="{% url 'patients:book_slot' slot.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-patient">Book</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="hms-card">
+    <h4>My Bookings</h4>
+    <table class="table table-hms">
+        <thead>
+            <tr><th>Doctor</th><th>Date</th><th>Time</th></tr>
+        </thead>
+        <tbody>
+            {% for booking in my_bookings %}
+            <tr>
+                <td>Dr. {{ booking.slot.doctor.username }}</td>
+                <td>{{ booking.slot.date }}</td>
+                <td>{{ booking.slot.start_time }} - {{ booking.slot.end_time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

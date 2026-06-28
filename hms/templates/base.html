@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<nav class="navbar-hms">
+    <div class="container d-flex justify-content-between align-items-center">
+        <span class="brand">🏥 HMS</span>
+        {% if request.user.is_authenticated %}
+        <div class="d-flex align-items-center gap-2">
+            <span class="user-pill">{{ request.user.username }} · {{ request.user.role }}</span>
+            <a href="{% url 'calendar_service:connect' %}" class="btn btn-sm btn-outline-light">Connect Calendar</a>
+            <form method="post" action="{% url 'accounts:logout' %}" class="d-inline m-0">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-outline-light">Logout</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</nav>
+<div class="container py-4">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
